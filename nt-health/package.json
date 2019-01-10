@@ -48,7 +48,7 @@
     "mocha": "2.5.x",
     "rimraf": "2.6.x",
     "should": "13.1.x"
-  }
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
