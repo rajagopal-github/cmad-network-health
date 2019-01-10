@@ -33,6 +33,22 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "sinon": "^1.17.5",
+    "mocha": "^3.0.0",
+    "mocha-junit-reporter": "^1.12.1",
+    "istanbul": "^0.4.4",
+    "mongodb": "^2.2.5",
+    "copyfiles": "1.2.x",
+    "expect.js": "0.x.x",
+    "faker": "4.1.x",
+    "mkdirp": "0.5.x",
+    "mocha": "2.5.x",
+    "rimraf": "2.6.x",
+    "should": "13.1.x"
+  }
   "browserslist": [
     ">0.2%",
     "not dead",
