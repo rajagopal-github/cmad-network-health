@@ -9,20 +9,20 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'npm install'
+                sh 'cd nt-health;npm install'
             }
             }
 
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'npm test'
+                sh 'cd nt-health;npm test'
             }
         }
         stage('Package') {
             steps {
                 echo 'Packaging....'
-                sh 'npm run package'
+                sh 'cd nt-health;npm run package'
                 archiveArtifacts artifacts: '**/distribution/*.zip', fingerprint: true
             }
         }
