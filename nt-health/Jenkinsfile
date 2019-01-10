@@ -22,7 +22,7 @@ pipeline {
         stage('Package') {
             steps {
                 echo 'Packaging....'
-                sh 'cd nt-health;npm run package'
+                sh 'cd nt-health;npm run build'
                 archiveArtifacts artifacts: '**/distribution/*.zip', fingerprint: true
             }
         }
