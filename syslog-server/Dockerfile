@@ -9,10 +9,12 @@ RUN mvn compile \
 	&& mvn package
 
 
-FROM tomcat:latest
+FROM alpine:latest
 
 WORKDIR /opt
 
 COPY --from=build /opt/syslog-server/target/syslog-server.jar .
+
+EXPOSE 8080
 
 CMD java -jar syslog-server.jar
