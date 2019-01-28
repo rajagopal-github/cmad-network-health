@@ -1,12 +1,12 @@
 package com.cisco.cmad.syslog.rest;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -57,12 +57,40 @@ public class SyslogController {
 	}
 		
 	@RequestMapping(value = "/user-preference",method = RequestMethod.GET)
-	public ResponseEntity<List<UserPreference>> getSyslogUserPreference() {
-		return null;
+	public ResponseEntity<UserPreference> getSyslogUserPreference(@RequestParam(value = "property") String propertyName) {
+		UserPreference pref = syslogService.getUserPreferenceByName(propertyName);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Access-Control-Allow-Origin", "*");
+		headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+		ResponseEntity entity = new ResponseEntity<UserPreference>(pref,headers, HttpStatus.OK);
+		return entity;
+
 	}
 	
-	@RequestMapping(value = "/user-preference",method = RequestMethod.POST)
+	@CrossOrigin
+	@RequestMapping(value = "/user-preference",method = {RequestMethod.POST,RequestMethod.PUT})
 	public ResponseEntity<UserPreference> setSyslogUserPreference(@RequestBody UserPreference userPref) {
-		return null;
+		System.out.println("SUSHMA in setSyslogUserPreference");
+		UserPreference pref = syslogService.setUserPreference(userPref);
+			HttpHeaders headers = new HttpHeaders();
+			headers.add("Access-Control-Allow-Methods", "POST, PUT");
+			System.out.println("SUSHMA resposnse setSyslogUserPreference");
+			ResponseEntity entity = new ResponseEntity<UserPreference>(pref,headers, HttpStatus.CREATED);
+			return entity;
+		 
 	}
+	
+//	@RequestMapping(value = "/user-preference",method = RequestMethod.GET)
+//	public ResponseEntity<List<UserPreference>> getAllSyslogUserPreference() {
+//		List<UserPreference> pref = syslogService.getAllUserPerferences();
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.add("Access-Control-Allow-Origin", "*");
+//		headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+//		ResponseEntity entity = new ResponseEntity<List<UserPreference>>(pref,headers, HttpStatus.OK);
+//		return entity;
+//
+//	}
+
+
+	
 }

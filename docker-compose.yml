@@ -1,0 +1,33 @@
+version: "2"
+volumes:
+  mysql:
+
+networks:
+  server:
+    driver: bridge
+
+
+services:
+
+  mysql:
+    image: mysql
+    volumes:
+      - mysql:/var/lib/mysql1/data:rw
+    networks:
+      - server
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=networkhealth
+
+  syslog-server:
+    build: ./syslog-server
+    networks:
+      - server
+    ports:
+      - 5001:8080
+    depends_on:
+      - mysql
+
+ 
+    
+

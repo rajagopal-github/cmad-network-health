@@ -4,12 +4,11 @@ WORKDIR /opt/syslog-server
 
 COPY . .
 
-RUN mvn compile \
-	&& mvn test \
-	&& mvn package
+RUN mvn compile -DskipTests=true \
+	&& mvn package -DskipTests=true
 
 
-FROM alpine:latest
+FROM java:openjdk-8-jre
 
 WORKDIR /opt
 

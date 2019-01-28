@@ -13,7 +13,7 @@ public class UserPreference {
 	@Id
 //	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_PREF_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private String id;
+	private long id;
 
 	private String user;
 	
@@ -21,11 +21,11 @@ public class UserPreference {
 	
 	private String value;
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
