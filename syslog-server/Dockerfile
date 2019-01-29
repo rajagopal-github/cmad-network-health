@@ -4,8 +4,7 @@ WORKDIR /opt/syslog-server
 
 COPY . .
 
-RUN mvn compile -DskipTests=true \
-	&& mvn package -DskipTests=true
+RUN mvn package -DskipTests
 
 
 FROM java:openjdk-8-jre
