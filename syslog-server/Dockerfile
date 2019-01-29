@@ -1,6 +1,6 @@
 FROM maven:3.6.0-jdk-8 as build
 
-WORKDIR /opt/syslog-server
+WORKDIR /opt
 
 COPY . .
 
