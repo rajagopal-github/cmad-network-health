@@ -4,7 +4,7 @@ WORKDIR /opt
 
 COPY . .
 
-RUN mvn package -DskipTests
+RUN cd syslog-server && mvn package -DskipTests
 
 
 FROM java:openjdk-8-jre
