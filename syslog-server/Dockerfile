@@ -2,9 +2,9 @@ FROM maven:3.6.0-jdk-8 as build
 
 WORKDIR /opt
 
-COPY . .
+COPY syslog-server/ .
 
-RUN cd syslog-server && mvn package -DskipTests
+RUN mvn package -DskipTests
 
 
 FROM java:openjdk-8-jre
