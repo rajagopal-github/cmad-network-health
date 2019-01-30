@@ -26,7 +26,7 @@ export function fetchSyslogsBeforeTimestamp(timestamp) {
 
 export function fetchSyslogsAfterTimestamp(timestamp) {
     console.log("Getting the syslog data");
-    var url = "http://localhost:8080/network/v1/health/events/syslog?offset=" + timestamp  ; //+ "&type=after";
+    var url = "http://cmad-team:8080/network/v1/health/events/syslog?offset=" + timestamp  ; //+ "&type=after";
     return $.getJSON(url,function(data){
             syslog_store.dispatch({
                 type: 'fetched_after',
@@ -39,7 +39,7 @@ export function fetchCounters() {
     console.log("Getting the counters");
 
     $.ajax({ 
-        url: "http://localhost:8080/network/v1/health/events/syslog/counters",
+        url: "http://cmad-team:8080/network/v1/health/events/syslog/counters",
         type: "GET",
         crossDomain: true,
         // data: JSON.stringify(somejson),
@@ -60,7 +60,7 @@ export function fetchSyncInterval() {
     console.log("Getting the sync interval");
 
     $.ajax({ 
-        url: "http://localhost:8080/network/v1/health/events/user-preference?property=interval",
+        url: "http://cmad-team:8080/network/v1/health/events/user-preference?property=interval",
         type: "GET",
         crossDomain: true,
         // data: JSON.stringify(somejson),
@@ -85,7 +85,7 @@ export function setSyncInterval(interval) {
         method = "POST";
     }
     $.ajax({
-        url: "http://localhost:8080/network/v1/health/events/user-preference",
+        url: "http://cmad-team:8080/network/v1/health/events/user-preference",
         type: method,
         crossDomain: true,
         data:JSON.stringify(interval),
