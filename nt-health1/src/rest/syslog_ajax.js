@@ -5,7 +5,7 @@ const $ = window.$;
 export function fetchSyslogsBeforeTimestamp(timestamp) {
     console.log("Getting the syslog data");
         $.ajax({
-            url: "http://localhost:8080/network/v1/health/events/syslog?offset=" + timestamp,
+            url: "http://cmad-team:8080/network/v1/health/events/syslog?offset=" + timestamp,
             type: "GET",
             crossDomain: true,
             // data: JSON.stringify(somejson),
